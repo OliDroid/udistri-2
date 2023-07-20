@@ -8,7 +8,7 @@ import com.uno.demo.entities.Paciente;
 
 public interface sPaciente {
     
-    List <Paciente> getPacientes();
+    Set <Paciente> getPacientes();
     Paciente getPacienteById(long Id);
     Paciente createPaciente(Paciente paciente);
     Paciente updatePaciente(Paciente paciente);

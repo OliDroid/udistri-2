@@ -23,5 +23,5 @@ public class Paciente {
     private int edad;
 
     @Column
-    private Long telefono;
+    private long telefono;
 }

@@ -9,6 +9,7 @@ import com.uno.demo.entities.Paciente;
 import com.uno.demo.repositories.rCita;
 import com.uno.demo.repositories.rPaciente;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -25,33 +26,32 @@ public class impPaciente implements sPaciente {
     private rPaciente rpaciente;
 
     @Override
-    public Set<Paciente> findAll() {
+    public Set<Paciente> getPacientes() {
         return rpaciente.findAll();
     }
 
 
     @Override
-    public Set<Paciente> findById(long id) {
+    public Paciente getPacienteById(long id) {
         return rpaciente.findById(id);
     }
 
     @Override
-    public Paciente addProduct(Paciente product) {
-        return rpaciente.save(product);
+    public Paciente createPaciente(Paciente paciente) {
+        return rpaciente.save(paciente);
     }
 
     @Override
-    public Paciente modifyProduct(long id, Paciente newProduct) {
-        Paciente product = rpaciente.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException(id));
-        newProduct.setId(product.getId());
-        return rpaciente.save(newProduct);
+    public Paciente updatePaciente(Paciente npaciente) {
+        Paciente paciente = rpaciente.findById(npaciente.getCedula())
+                .orElseThrow(() -> new ProductNotFoundException(npaciente.getCedula()));
+        return rpaciente.save(npaciente);
     }
 
     @Override
-    public void deleteProduct(long id) {
-        rpaciente.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException(id));
+    public void deletePaciente(long id) {
+        rpaciente.findById(id);
+                
         rpaciente.deleteById(id);
     }
 }
