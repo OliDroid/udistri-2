@@ -6,12 +6,13 @@ import com.uno.demo.entities.Paciente;
 import org.springframework.data.repository.CrudRepository;
 import java.util.Set;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface rPaciente extends CrudRepository<Paciente, Long>{
     Set <Paciente> findAll();
 
-    Paciente findById(long id);
+    Optional<Paciente> findById(long id);
 
     Set<Paciente> findByCategory(String category);
 
