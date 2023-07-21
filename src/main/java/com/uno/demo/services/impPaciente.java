@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.uno.demo.entities.Paciente;
 /*import com.example.myshop.exception.ProductNotFoundException;*/
-import com.uno.demo.repositories.rCita;
 import com.uno.demo.repositories.rPaciente;
+import com.uno.demo.exceptions.exceptions1;
 
-import java.util.List;
+
 import java.util.Optional;
 import java.util.Set;
 
@@ -32,7 +32,7 @@ public class impPaciente implements sPaciente {
 
 
     @Override
-    public Paciente getPacienteById(long id) {
+    public Optional<Paciente> getPacienteById(long id) {
         return rpaciente.findById(id);
     }
 
@@ -44,7 +44,7 @@ public class impPaciente implements sPaciente {
     @Override
     public Paciente updatePaciente(Paciente npaciente) {
         Paciente paciente = rpaciente.findById(npaciente.getCedula())
-                .orElseThrow(() -> new ProductNotFoundException(npaciente.getCedula()));
+                .orElseThrow(() -> new exceptions1(npaciente.getCedula()));
         return rpaciente.save(npaciente);
     }
 
