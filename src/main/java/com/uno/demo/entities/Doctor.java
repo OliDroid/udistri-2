@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 public class Doctor {
     
     @Id
-    private Long cedula;
+    private long id;
 
     @Column
     private String nombre;
@@ -20,10 +20,10 @@ public class Doctor {
     private String apellido;
     
     @Column
-    private Long consultorio;
+    private long consultorio;
     
     @Column
-    private String email;
+    private String mail;
     
     @Column
     private String especialidad;

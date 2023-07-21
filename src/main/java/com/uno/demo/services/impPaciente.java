@@ -43,8 +43,8 @@ public class impPaciente implements sPaciente {
 
     @Override
     public Paciente updatePaciente(Paciente npaciente) {
-        Paciente paciente = rpaciente.findById(npaciente.getCedula())
-                .orElseThrow(() -> new exceptions1(npaciente.getCedula()));
+        Paciente paciente = rpaciente.findById(npaciente.getId())
+                .orElseThrow(() -> new exceptions1(npaciente.getId()));
         return rpaciente.save(npaciente);
     }
 

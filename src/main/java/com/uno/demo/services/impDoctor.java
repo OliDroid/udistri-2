@@ -42,8 +42,8 @@ public class impDoctor implements sDoctor {
 
     @Override
     public Doctor updateDoctor(Doctor nDoctor) {
-        Doctor doctor = rdoctor.findById(nDoctor.getCedula())
-                .orElseThrow(() -> new exceptions1(nDoctor.getCedula()));
+        Doctor doctor = rdoctor.findById(nDoctor.getId())
+                .orElseThrow(() -> new exceptions1(nDoctor.getId()));
         return rdoctor.save(nDoctor);
     }
 

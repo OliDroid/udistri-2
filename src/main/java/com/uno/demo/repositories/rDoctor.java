@@ -14,8 +14,5 @@ public interface rDoctor extends CrudRepository<Doctor, Long>{
 
     Optional<Doctor> findById(long id);
 
-    Set<Doctor> findByCategory(String category);
-
-    Set<Doctor> findByNameAndPrice(String name, float price);
 
 }

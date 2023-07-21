@@ -35,12 +35,12 @@ public class impCita implements sCita {
 
         @Override
     public Set<Cita> getCitaByDoctor(long id) {
-        return rcita.findByIdPaciente(id);
+        return rcita.findByDoctor(id);
     }
 
         @Override
     public Set<Cita> getCitaByPaciente(long id) {
-        return rcita.findByIdDoctor(id);
+        return rcita.findByPaciente(id);
     }
 
     @Override

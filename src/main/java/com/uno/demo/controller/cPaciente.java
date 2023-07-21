@@ -8,19 +8,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.Set;
 import com.uno.demo.entities.Paciente;
 import com.uno.demo.services.sPaciente;
 import com.uno.demo.exceptions.exceptions1;
 
-
+@RestController
 public class cPaciente {
     @Autowired
     private sPaciente spaciente;
 
     @GetMapping("/pacientes")
-    public ResponseEntity <Set<Paciente>> getPacientes() {
+    public ResponseEntity <Set<Paciente>> Pacientes() {
         Set<Paciente> pacientes = spaciente.getPacientes();
+        System.out.println(pacientes);
                 
         return new ResponseEntity<>(pacientes, HttpStatus.OK);
     }

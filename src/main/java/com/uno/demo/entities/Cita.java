@@ -3,7 +3,7 @@ package com.uno.demo.entities;
 import lombok.*;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
 
 
 @Data
@@ -17,12 +17,12 @@ public class Cita {
     private long id;
 
     @Column
-    private long idPaciente;
+    private long paciente;
 
     @Column
-    private long idDoctor;
+    private long doctor;
 
-    @Column(name = "creation_date")
-    private LocalDateTime creationDate;
+    @Column
+    private String fecha;
 
 }

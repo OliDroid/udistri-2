@@ -1,6 +1,5 @@
 package com.uno.demo.services;
 import java.util.Optional;
-import java.util.List;
 import java.util.Set;
 
 import com.uno.demo.entities.Doctor;

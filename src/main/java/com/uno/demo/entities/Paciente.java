@@ -11,7 +11,7 @@ import jakarta.persistence.*;
 public class Paciente {
 
     @Id
-    private long cedula;
+    private long id;
 
     @Column
     private String nombre;
@@ -23,5 +23,5 @@ public class Paciente {
     private int edad;
 
     @Column
-    private long telefono;
+    private long cel;
 }

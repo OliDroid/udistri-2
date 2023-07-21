@@ -12,8 +12,8 @@ public interface rCita extends CrudRepository<Cita, Long>{
 
     Optional<Cita> findById(long id);
 
-    Set<Cita> findByIdPaciente(long id);
+    Set<Cita> findByPaciente(long id);
 
-    Set<Cita> findByIdDoctor(long id);
+    Set<Cita> findByDoctor(long id);
 
 }

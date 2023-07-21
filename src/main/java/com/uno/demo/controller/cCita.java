@@ -5,16 +5,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.Set;
 import com.uno.demo.entities.Cita;
 import com.uno.demo.services.sCita;
 import com.uno.demo.exceptions.exceptions1;
 
-
+@RestController
 public class cCita {
     @Autowired
     private sCita scita;
@@ -41,7 +42,7 @@ public class cCita {
     }
 
     @PutMapping("/cita/{id}")
-    public ResponseEntity<Cita> modifyProduct(@RequestBody Cita cita) {
+    public ResponseEntity<Cita> updateCita(@RequestBody Cita cita) {
         Cita ucita = scita.updateCita(cita);
         return new ResponseEntity<>(ucita, HttpStatus.OK);
     }
