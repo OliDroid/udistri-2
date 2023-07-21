@@ -5,14 +5,14 @@ import com.uno.demo.entities.Doctor;
 
 import org.springframework.data.repository.CrudRepository;
 import java.util.Set;
-import java.util.List;
+import java.util.Optional;
 
 
 public interface rDoctor extends CrudRepository<Doctor, Long>{
     
-    List<Doctor> findAll();
+    Set<Doctor> findAll();
 
-    Doctor findById(long id);
+    Optional<Doctor> findById(long id);
 
     Set<Doctor> findByCategory(String category);
 

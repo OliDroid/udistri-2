@@ -5,11 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uno.demo.entities.Doctor;
-/*import com.example.myshop.exception.ProductNotFoundException;*/
-import com.uno.demo.repositories.rCita;
+import com.uno.demo.exceptions.exceptions1;
 import com.uno.demo.repositories.rDoctor;
 
-import java.util.List;
+
 import java.util.Optional;
 import java.util.Set;
 
@@ -26,13 +25,13 @@ public class impDoctor implements sDoctor {
     private rDoctor rdoctor;
 
     @Override
-    public List<Doctor> getDoctors() {
+    public Set<Doctor> getDoctors() {
         return rdoctor.findAll();
     }
 
 
     @Override
-    public Doctor getDoctorById(long id) {
+    public Optional<Doctor> getDoctorById(long id) {
         return rdoctor.findById(id);
     }
 
@@ -43,15 +42,15 @@ public class impDoctor implements sDoctor {
 
     @Override
     public Doctor updateDoctor(Doctor nDoctor) {
-        Doctor Doctor = rdoctor.findById(nDoctor.getCedula())
-                .orElseThrow(() -> new ProductNotFoundException(nDoctor.getCedula()));
+        Doctor doctor = rdoctor.findById(nDoctor.getCedula())
+                .orElseThrow(() -> new exceptions1(nDoctor.getCedula()));
         return rdoctor.save(nDoctor);
     }
 
     @Override
     public void deleteDoctor(long id) {
         rdoctor.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException(id));
+                .orElseThrow(() -> new exceptions1(id));
         rdoctor.deleteById(id);
     }
 }

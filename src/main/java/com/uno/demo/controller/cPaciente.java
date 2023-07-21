@@ -5,30 +5,30 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import java.util.List;
+import java.util.Set;
 import com.uno.demo.entities.Paciente;
 import com.uno.demo.services.sPaciente;
+import com.uno.demo.exceptions.exceptions1;
+
 
 public class cPaciente {
     @Autowired
     private sPaciente spaciente;
 
-    @GetMapping("/paciente")
-    public ResponseEntity <List<Paciente>> getPacientes() {
-        List<Paciente> pacientes = spaciente.getPacientes()
-                .orElseThrow(() -> new ProductNotFoundException(id));
-
+    @GetMapping("/pacientes")
+    public ResponseEntity <Set<Paciente>> getPacientes() {
+        Set<Paciente> pacientes = spaciente.getPacientes();
+                
         return new ResponseEntity<>(pacientes, HttpStatus.OK);
     }
 
         @GetMapping("/paciente")
         public ResponseEntity <Paciente> getPaciente(long id) {
         Paciente paciente = spaciente.getPacienteById(id)
-                .orElseThrow(() -> new ProductNotFoundException(id));
+                .orElseThrow(() -> new exceptions1(id));
 
         return new ResponseEntity<>(paciente, HttpStatus.OK);
     }
@@ -46,8 +46,8 @@ public class cPaciente {
     }
 
     @DeleteMapping("/paciente/{id}")
-    public ResponseEntity<Response> deletePaciente(@RequestBody long chaopaciente) {
+    public ResponseEntity<String> deletePaciente(@RequestBody long chaopaciente) {
         spaciente.deletePaciente(chaopaciente);
-        return new ResponseEntity<>(Response.noErrorResponse(), HttpStatus.OK);
+        return new ResponseEntity<>("chao paciente"+chaopaciente, HttpStatus.OK);
     }
 }

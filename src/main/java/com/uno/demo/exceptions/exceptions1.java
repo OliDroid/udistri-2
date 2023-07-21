@@ -1,16 +1,16 @@
 package com.uno.demo.exceptions;
 
-public class ProductNotFoundException extends RuntimeException {
-    public ProductNotFoundException() {
+public class exceptions1 extends RuntimeException {
+    public exceptions1() {
         super();
         
     }
 
-    public ProductNotFoundException(String message) {
+    public exceptions1(String message) {
         super(message);
     }
 
-    public ProductNotFoundException(long id) {
+    public exceptions1(long id) {
         super("Product not found: " + id);
     }
 }

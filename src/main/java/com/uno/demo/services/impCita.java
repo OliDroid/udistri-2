@@ -5,10 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uno.demo.entities.Cita;
-/*import com.example.myshop.exception.ProductNotFoundException;*/
 import com.uno.demo.repositories.rCita;
-
-import java.util.List;
+import com.uno.demo.exceptions.exceptions1;
 import java.util.Optional;
 import java.util.Set;
 
@@ -25,13 +23,13 @@ public class impCita implements sCita {
     private rCita rcita;
 
     @Override
-    public List<Cita> getCitas() {
+    public Set<Cita> getCitas() {
         return rcita.findAll();
     }
 
 
     @Override
-    public Cita getCitaById(long id) {
+    public Optional<Cita> getCitaById(long id) {
         return rcita.findById(id);
     }
 
@@ -50,17 +48,17 @@ public class impCita implements sCita {
         return rcita.save(Cita);
     }
 
-    @Override
+      @Override
     public Cita updateCita(Cita nCita) {
-        Cita cita/*objeto sin sentido */ = rcita.findById(nCita.getId())
-                .orElseThrow(() -> new ProductNotFoundException(nCita.getCedula()));
+        Cita cita = rcita.findById(nCita.getId())  /*objeto sin sentido */
+                .orElseThrow(() -> new exceptions1(nCita.getId()));
         return rcita.save(nCita);
     }
 
     @Override
     public void deleteCita(long id) {
         rcita.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException(id));
+                .orElseThrow(() -> new exceptions1(id));
         rcita.deleteById(id);
     }
 }
