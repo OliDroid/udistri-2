@@ -45,7 +45,7 @@ public class cDoctor {
     }
 
     @PutMapping("/doctor/{id}")
-    public ResponseEntity<Doctor> updateDoctor(@RequestBody Doctor doctor) {
+    public ResponseEntity<Doctor> updateDoctor(@PathVariable Doctor doctor) {
         Doctor udoctor = sdoctor.updateDoctor(doctor);
         return new ResponseEntity<>(udoctor, HttpStatus.OK);
     }
