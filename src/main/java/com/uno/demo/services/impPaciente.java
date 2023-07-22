@@ -45,12 +45,12 @@ public class impPaciente implements sPaciente {
     public Paciente updatePaciente(Paciente npaciente) {
         Paciente paciente = rpaciente.findById(npaciente.getId())
                 .orElseThrow(() -> new exceptions1(npaciente.getId()));
+                rpaciente.deleteById(npaciente.getId());
         return rpaciente.save(npaciente);
     }
 
     @Override
     public long deletePaciente(long id) {
-        Optional<Paciente> paciente = rpaciente.findById(id);
         rpaciente.deleteById(id);
         return id;
     }

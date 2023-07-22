@@ -43,8 +43,8 @@ public class cDoctor {
         return new ResponseEntity<>(undoc, HttpStatus.CREATED);
     }
 
-    @PutMapping("/doctor/{id}")
-    public ResponseEntity<Doctor> updateDoctor(@PathVariable Doctor doctor) {
+    @PutMapping("/doctor")
+    public ResponseEntity<Doctor> updateDoctor(@RequestBody Doctor doctor) {
         Doctor udoctor = sdoctor.updateDoctor(doctor);
         return new ResponseEntity<>(udoctor, HttpStatus.OK);
     }
@@ -52,7 +52,7 @@ public class cDoctor {
     @DeleteMapping("/doctor/{id}")
     public ResponseEntity<String> deleteDoctor(@PathVariable long id) {
         sdoctor.deleteDoctor(id);
-        return new ResponseEntity<String>("chao Doctor " + id, HttpStatus.OK);
+        return new ResponseEntity<String>("Chao Doctor " + id, HttpStatus.OK);
     }
 
 }

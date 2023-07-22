@@ -52,6 +52,7 @@ public class impCita implements sCita {
     public Cita updateCita(Cita nCita) {
         Cita cita = rcita.findById(nCita.getId())  /*objeto sin sentido */
                 .orElseThrow(() -> new exceptions1(nCita.getId()));
+                rcita.deleteById(nCita.getId());
         return rcita.save(nCita);
     }
 

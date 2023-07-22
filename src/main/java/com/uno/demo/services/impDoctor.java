@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uno.demo.entities.Doctor;
+import com.uno.demo.entities.Doctor;
 import com.uno.demo.exceptions.exceptions1;
 import com.uno.demo.repositories.rDoctor;
 
@@ -41,10 +42,11 @@ public class impDoctor implements sDoctor {
     }
 
     @Override
-    public Doctor updateDoctor(Doctor nDoctor) {
-        Doctor doctor = rdoctor.findById(nDoctor.getId())
-                .orElseThrow(() -> new exceptions1(nDoctor.getId()));
-        return rdoctor.save(nDoctor);
+      public Doctor updateDoctor(Doctor ndoctor) {
+        Doctor doc = rdoctor.findById(ndoctor.getId())
+                .orElseThrow(() -> new exceptions1(ndoctor.getId()));
+                rdoctor.deleteById(ndoctor.getId());
+        return rdoctor.save(ndoctor);
     }
 
     @Override

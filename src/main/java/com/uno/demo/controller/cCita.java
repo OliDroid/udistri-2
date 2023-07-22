@@ -45,10 +45,10 @@ public class cCita {
         return new ResponseEntity<>(unacita, HttpStatus.CREATED);
     }
 
-    @PutMapping("/cita/{id}")
-    public ResponseEntity<Cita> updateCita(@PathVariable Cita cita) {
-        Cita ucita = scita.updateCita(cita);
-        return new ResponseEntity<>(ucita, HttpStatus.OK);
+    @PutMapping("/cita")
+    public ResponseEntity<Cita> updateCita(@RequestBody Cita cita) {
+        scita.updateCita(cita);
+        return new ResponseEntity<>(cita, HttpStatus.OK);
     }
 
     @DeleteMapping("/cita/{id}")

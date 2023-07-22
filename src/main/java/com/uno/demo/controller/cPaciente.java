@@ -45,15 +45,15 @@ public class cPaciente {
         return new ResponseEntity<>(unpa, HttpStatus.CREATED);
     }
 
-    @PutMapping("/paciente/{id}")
-    public ResponseEntity<Paciente> modifyProduct(@RequestBody Paciente paciente) {
-        Paciente upaciente = spaciente.updatePaciente(paciente);
-        return new ResponseEntity<>(upaciente, HttpStatus.OK);
+    @PutMapping("/paciente")
+    public ResponseEntity<Paciente> modifyPaciente(@RequestBody Paciente paciente) {
+        spaciente.updatePaciente(paciente);
+        return new ResponseEntity<>(paciente, HttpStatus.OK);
     }
 
     @DeleteMapping("/paciente/{id}")
     public ResponseEntity<String> deletePaciente(@PathVariable long id) {
         spaciente.deletePaciente(id);
-        return new ResponseEntity<String>("chao paciente" + id, HttpStatus.OK);
+        return new ResponseEntity<String>("Chao señor enfermo " + id, HttpStatus.OK);
     }
 }
