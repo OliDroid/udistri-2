@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,10 +29,12 @@ public class cPaciente {
         return new ResponseEntity<>(pacientes, HttpStatus.OK);
     }
 
-        @GetMapping("/paciente")
-        public ResponseEntity <Paciente> getPaciente(long id) {
+        @GetMapping("/paciente/{id}")
+        public ResponseEntity<Paciente> getPaciente(@PathVariable long id) {
+        System.out.println(id);
         Paciente paciente = spaciente.getPacienteById(id)
-                .orElseThrow(() -> new exceptions1(id));
+        .orElseThrow(() -> new exceptions1(id));
+        
 
         return new ResponseEntity<>(paciente, HttpStatus.OK);
     }
