@@ -49,9 +49,9 @@ public class impPaciente implements sPaciente {
     }
 
     @Override
-    public void deletePaciente(long id) {
-        rpaciente.findById(id);
-                
+    public long deletePaciente(long id) {
+        Optional<Paciente> paciente = rpaciente.findById(id);
         rpaciente.deleteById(id);
+        return id;
     }
 }

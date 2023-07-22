@@ -46,14 +46,14 @@ public class cCita {
     }
 
     @PutMapping("/cita/{id}")
-    public ResponseEntity<Cita> updateCita(@RequestBody Cita cita) {
+    public ResponseEntity<Cita> updateCita(@PathVariable Cita cita) {
         Cita ucita = scita.updateCita(cita);
         return new ResponseEntity<>(ucita, HttpStatus.OK);
     }
 
     @DeleteMapping("/cita/{id}")
-    public ResponseEntity<String> deleteCita(@RequestBody long chaocita) {
-        scita.deleteCita(chaocita);
-        return new ResponseEntity<>("la cita de id "+chaocita+" acaba de desaparecer", HttpStatus.OK);
+    public ResponseEntity<String> deleteCita(@PathVariable long id) {
+        scita.deleteCita(id);
+        return new ResponseEntity<String>("La cita con id "+id+ "desapareció ", HttpStatus.OK);
     }
 }

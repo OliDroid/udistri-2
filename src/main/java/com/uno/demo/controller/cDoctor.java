@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Set;
 import com.uno.demo.entities.Doctor;
-import com.uno.demo.entities.Paciente;
 import com.uno.demo.services.sDoctor;
 import com.uno.demo.exceptions.exceptions1;
 
@@ -51,8 +50,9 @@ public class cDoctor {
     }
 
     @DeleteMapping("/doctor/{id}")
-    public ResponseEntity<String> deletePaciente(@RequestBody long chaodoctor) {
-        sdoctor.deleteDoctor(chaodoctor);
-        return new ResponseEntity<>("chao doctor" + chaodoctor, HttpStatus.OK);
+    public ResponseEntity<String> deleteDoctor(@PathVariable long id) {
+        sdoctor.deleteDoctor(id);
+        return new ResponseEntity<String>("chao Doctor " + id, HttpStatus.OK);
     }
+
 }

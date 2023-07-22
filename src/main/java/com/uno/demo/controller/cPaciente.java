@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import java.util.Optional;
 import java.util.Set;
 import com.uno.demo.entities.Paciente;
 import com.uno.demo.services.sPaciente;
@@ -52,8 +52,8 @@ public class cPaciente {
     }
 
     @DeleteMapping("/paciente/{id}")
-    public ResponseEntity<String> deletePaciente(@RequestBody long chaopaciente) {
-        spaciente.deletePaciente(chaopaciente);
-        return new ResponseEntity<>("chao paciente"+chaopaciente, HttpStatus.OK);
+    public ResponseEntity<String> deletePaciente(@PathVariable long id) {
+        spaciente.deletePaciente(id);
+        return new ResponseEntity<String>("chao paciente" + id, HttpStatus.OK);
     }
 }

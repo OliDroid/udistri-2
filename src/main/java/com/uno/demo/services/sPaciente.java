@@ -8,9 +8,9 @@ import com.uno.demo.entities.Paciente;
 public interface sPaciente {
     
     Set<Paciente> getPacientes();
-    Optional<Paciente> getPacienteById(long Id);
+    Optional<Paciente> getPacienteById(long id);
     Paciente createPaciente(Paciente paciente);
     Paciente updatePaciente(Paciente paciente);
-    void deletePaciente(long id);
+    long deletePaciente(long id);
 
 }
