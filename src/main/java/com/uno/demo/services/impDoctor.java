@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uno.demo.entities.Doctor;
-import com.uno.demo.entities.Doctor;
 import com.uno.demo.exceptions.exceptions1;
 import com.uno.demo.repositories.rDoctor;
 

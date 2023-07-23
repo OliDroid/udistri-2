@@ -45,8 +45,8 @@ public class cDoctor {
 
     @PutMapping("/doctor")
     public ResponseEntity<Doctor> updateDoctor(@RequestBody Doctor doctor) {
-        Doctor udoctor = sdoctor.updateDoctor(doctor);
-        return new ResponseEntity<>(udoctor, HttpStatus.OK);
+        sdoctor.updateDoctor(doctor);
+        return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
 
     @DeleteMapping("/doctor/{id}")
